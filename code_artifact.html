@@ -351,115 +351,147 @@
             <!-- SLIDE 6: What is Agile -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">06. WHAT IS AGILE</span>
-                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">そもそも「アジャイル」とは？</h2>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">06. WHAT IS
+                        AGILE</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">前提整理② そもそも「アジャイル」とは？</h2>
                     <p class="text-base md:text-lg font-black text-gray-800">〜すばやく、柔軟に、対話しながら適応していくアプローチ〜</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto items-stretch max-w-5xl mx-auto w-full">
                     <!-- Traditional Waterfall -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-gray-300 shadow-md flex flex-col justify-between diagram-node">
+                    <div
+                        class="bg-white p-5 rounded-2xl border-2 border-gray-300 shadow-md flex flex-col justify-between diagram-node">
                         <div>
-                            <span class="bg-gray-100 text-gray-600 text-xs font-black px-2.5 py-1 rounded-full">従来のアプローチ</span>
+                            <span
+                                class="bg-gray-100 text-gray-600 text-xs font-black px-2.5 py-1 rounded-full">計画主導型アプローチ</span>
                             <h3 class="font-extrabold text-xl text-gray-700 mt-3 flex items-center">
-                                <i class="fa-solid fa-arrow-down-long mr-2 text-gray-500"></i>ウォーターフォール（計画主導）
+                                <i class="fa-solid fa-arrow-down-long mr-2 text-gray-500"></i>ウォーターフォール（計画型）
                             </h3>
-                            
+
                             <!-- Visual Illustration: Waterfall waterfall steps -->
                             <div class="my-3 flex justify-center bg-gray-50/50 p-2 rounded-xl border border-gray-100">
                                 <svg class="w-full h-16 text-gray-400" viewBox="0 0 240 60">
                                     <!-- Steps -->
-                                    <rect x="10" y="5" width="40" height="16" rx="4" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" />
-                                    <text x="30" y="16" font-size="7" font-weight="bold" text-anchor="middle" fill="#4b5563">大計画</text>
-                                    
-                                    <rect x="60" y="20" width="40" height="16" rx="4" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" />
-                                    <text x="80" y="31" font-size="7" font-weight="bold" text-anchor="middle" fill="#4b5563">一括開発</text>
-                                    
-                                    <rect x="110" y="35" width="40" height="16" rx="4" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" />
-                                    <text x="130" y="46" font-size="7" font-weight="bold" text-anchor="middle" fill="#4b5563">テスト</text>
-                                    
+                                    <rect x="10" y="5" width="40" height="16" rx="4" fill="#f3f4f6" stroke="#d1d5db"
+                                        stroke-width="1.5" />
+                                    <text x="30" y="16" font-size="7" font-weight="bold" text-anchor="middle"
+                                        fill="#4b5563">要件定義</text>
+
+                                    <rect x="60" y="20" width="40" height="16" rx="4" fill="#f3f4f6" stroke="#d1d5db"
+                                        stroke-width="1.5" />
+                                    <text x="80" y="31" font-size="7" font-weight="bold" text-anchor="middle"
+                                        fill="#4b5563">設計・開発</text>
+
+                                    <rect x="110" y="35" width="40" height="16" rx="4" fill="#f3f4f6" stroke="#d1d5db"
+                                        stroke-width="1.5" />
+                                    <text x="130" y="46" font-size="7" font-weight="bold" text-anchor="middle"
+                                        fill="#4b5563">検証テスト</text>
+
                                     <!-- Connecting Lines -->
-                                    <path d="M 50 13 L 60 20 M 100 28 L 110 35" stroke="#9ca3af" stroke-width="1.5" fill="none" />
-                                    
+                                    <path d="M 50 13 L 60 20 M 100 28 L 110 35" stroke="#9ca3af" stroke-width="1.5"
+                                        fill="none" />
+
                                     <!-- Giant Output -->
-                                    <rect x="170" y="15" width="55" height="34" rx="6" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5" />
-                                    <text x="197.5" y="31" font-size="7" font-weight="black" text-anchor="middle" fill="#ffffff">巨大な成果物</text>
-                                    <text x="197.5" y="41" font-size="5" font-weight="bold" text-anchor="middle" fill="#f3f4f6">（やり直し困難）</text>
-                                    
-                                    <path d="M 150 43 L 170 32" stroke="#4b5563" stroke-width="1.5" fill="none" />
+                                    <rect x="170" y="15" width="55" height="34" rx="6" fill="#f3f4f6" stroke="#9ca3af"
+                                        stroke-width="1.5" />
+                                    <text x="197.5" y="31" font-size="7" font-weight="black" text-anchor="middle"
+                                        fill="#4b5563">完成形</text>
+                                    <text x="197.5" y="41" font-size="5" font-weight="bold" text-anchor="middle"
+                                        fill="#9ca3af">（一括納品）</text>
+
+                                    <path d="M 150 43 L 170 32" stroke="#9ca3af" stroke-width="1.5" fill="none" />
                                 </svg>
                             </div>
 
                             <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
-                                最初に完璧な計画を立て、順番に進めるやり方。<br>
-                                途中で「何か違うな」と思っても、後戻りや変更が極めて困難。
+                                全体の要件を最初から詳細に計画し、工程順に着実に進めるやり方。<br>
+                                目標が明確で、計画通りの品質・期限を徹底するプロジェクトに最適。
                             </p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-gray-200 text-xs font-bold text-gray-500">
-                            <i class="fa-solid fa-triangle-exclamation mr-1 text-red-400"></i>不確実で変化の激しい現代ではリスクが高い
+                            <i class="fa-solid fa-circle-check mr-1 text-brand-green"></i>要件が事前に明確な場合に、高い品質と安定性を発揮
                         </div>
                     </div>
 
                     <!-- Agile -->
-                    <div class="bg-white p-5 rounded-2xl border-t-8 border-brand-green border-l border-r border-b border-gray-200 shadow-lg flex flex-col justify-between diagram-node">
+                    <div
+                        class="bg-white p-5 rounded-2xl border-t-8 border-brand-green border-l border-r border-b border-gray-200 shadow-lg flex flex-col justify-between diagram-node">
                         <div>
-                            <span class="bg-brand-green text-white text-xs font-black px-2.5 py-1 rounded-full">アジャイルのアプローチ</span>
+                            <span
+                                class="bg-brand-green text-white text-xs font-black px-2.5 py-1 rounded-full">適応型アプローチ</span>
                             <h3 class="font-extrabold text-xl text-brand-green mt-3 flex items-center">
-                                <i class="fa-solid fa-arrows-spin mr-2 text-brand-orange animate-spin-slow"></i>アジャイル（適応・対話主導）
+                                <i
+                                    class="fa-solid fa-arrows-spin mr-2 text-brand-orange animate-spin-slow"></i>アジャイル（適応型）
                             </h3>
-                            
+
                             <!-- Visual Illustration: Agile loops and mini steps -->
-                            <div class="my-3 flex justify-center bg-emerald-50/30 p-2 rounded-xl border border-emerald-100">
+                            <div
+                                class="my-3 flex justify-center bg-emerald-50/30 p-2 rounded-xl border border-emerald-100">
                                 <svg class="w-full h-16 text-brand-orange" viewBox="0 0 240 60">
                                     <!-- Rotating Cycle on Left -->
                                     <g transform="translate(10, 0)">
-                                        <path d="M 35 30 A 18 18 0 1 1 35 29" fill="none" stroke="#d94e11" stroke-width="3" stroke-dasharray="25 6" />
-                                        <text x="35" y="33" font-size="7" font-weight="black" text-anchor="middle" fill="#143d30">反復</text>
-                                        <text x="35" y="20" font-size="5" font-weight="bold" text-anchor="middle" fill="#d94e11">計画・開発・評価</text>
+                                        <path d="M 35 30 A 18 18 0 1 1 35 29" fill="none" stroke="#d94e11"
+                                            stroke-width="3" stroke-dasharray="25 6" />
+                                        <text x="35" y="33" font-size="7" font-weight="black" text-anchor="middle"
+                                            fill="#143d30">反復</text>
+                                        <text x="35" y="20" font-size="5" font-weight="bold" text-anchor="middle"
+                                            fill="#d94e11">計画・開発・評価</text>
                                     </g>
-                                    
+
                                     <!-- Connection arrow -->
-                                    <path d="M 70 30 L 90 30" stroke="#d94e11" stroke-width="1.5" stroke-dasharray="3 3" fill="none" />
-                                    
+                                    <path d="M 70 30 L 90 30" stroke="#d94e11" stroke-width="1.5" stroke-dasharray="3 3"
+                                        fill="none" />
+
                                     <!-- Deliverables -->
                                     <g transform="translate(100, 18)">
-                                        <rect x="0" y="0" width="22" height="22" rx="4" fill="#e8f5e9" stroke="#143d30" stroke-width="1.5" />
-                                        <text x="11" y="13" font-size="6" font-weight="black" text-anchor="middle" fill="#143d30">Ver1</text>
+                                        <rect x="0" y="0" width="22" height="22" rx="4" fill="#e8f5e9" stroke="#143d30"
+                                            stroke-width="1.5" />
+                                        <text x="11" y="13" font-size="6" font-weight="black" text-anchor="middle"
+                                            fill="#143d30">Ver1</text>
                                     </g>
-                                    
+
                                     <path d="M 127 30 L 137 30" stroke="#143d30" stroke-width="1.2" fill="none" />
-                                    
+
                                     <g transform="translate(142, 14)">
-                                        <rect x="0" y="0" width="26" height="26" rx="4" fill="#a5d6a7" stroke="#143d30" stroke-width="1.5" />
-                                        <text x="13" y="15" font-size="6" font-weight="black" text-anchor="middle" fill="#143d30">Ver2</text>
+                                        <rect x="0" y="0" width="26" height="26" rx="4" fill="#a5d6a7" stroke="#143d30"
+                                            stroke-width="1.5" />
+                                        <text x="13" y="15" font-size="6" font-weight="black" text-anchor="middle"
+                                            fill="#143d30">Ver2</text>
                                     </g>
-                                    
+
                                     <path d="M 173 30 L 183 30" stroke="#143d30" stroke-width="1.2" fill="none" />
-                                    
+
                                     <g transform="translate(188, 10)">
-                                        <rect x="0" y="0" width="30" height="30" rx="4" fill="#388e3c" stroke="#ffffff" stroke-width="1.5" />
-                                        <text x="15" y="17" font-size="6" font-weight="black" text-anchor="middle" fill="#ffffff">完成版</text>
-                                        <text x="15" y="24" font-size="4" font-weight="bold" text-anchor="middle" fill="#ffffff">（進化）</text>
+                                        <rect x="0" y="0" width="30" height="30" rx="4" fill="#388e3c" stroke="#ffffff"
+                                            stroke-width="1.5" />
+                                        <text x="15" y="17" font-size="6" font-weight="black" text-anchor="middle"
+                                            fill="#ffffff">Ver3</text>
+                                        <text x="15" y="24" font-size="4" font-weight="bold" text-anchor="middle"
+                                            fill="#ffffff">（適応・進化）</text>
                                     </g>
                                 </svg>
                             </div>
 
                             <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
-                                小さく作って試し、フィードバックを得ながら柔軟に改善を繰り返す。<strong class="text-brand-orange font-black underline decoration-brand-green decoration-2">「失敗からの学び」を前提にした進め方</strong>。
+                                要件の変更を前提とし、小さなサイクル（反復）で改善と評価を繰り返すやり方。<br>
+                                仮説検証や、ユーザーとの対話を重ねながら進めるプロジェクトに最適。
                             </p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-gray-200 text-xs font-bold text-brand-orange">
-                            <i class="fa-solid fa-circle-check mr-1 text-brand-green"></i>状況の変化に合わせて軌道修正がしやすい
+                            <i class="fa-solid fa-circle-check mr-1 text-brand-green"></i>状況が不確実で、変化を伴いながら進める場合に適応力を発揮
                         </div>
                     </div>
                 </div>
 
                 <!-- Expansion of Scope -->
-                <div class="bg-brand-yellowBg p-4 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-orange-200 shadow-md max-w-4xl mx-auto w-full text-center mt-2 diagram-node">
+                <div
+                    class="bg-brand-yellowBg p-4 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-orange-200 shadow-md max-w-4xl mx-auto w-full text-center mt-2 diagram-node">
                     <p class="text-xs md:text-sm text-gray-900 font-bold leading-relaxed">
-                        <span class="text-brand-orange font-black"><i class="fa-solid fa-rocket mr-1"></i>現在のアジャイルの広がり：</span><br class="md:hidden">
+                        <span class="text-brand-orange font-black"><i
+                                class="fa-solid fa-rocket mr-1"></i>現在のアジャイルの広がり：</span><br class="md:hidden">
                         元々はソフトウェア開発の手法でしたが、現在は「変化に適応し自律的に動く」ための<br class="hidden md:inline">
-                        <strong class="text-brand-green font-black">【組織づくり・チームビルディング・働き方のマインドセット】</strong>へと大きく適用範囲が広がっています。
+                        <strong
+                            class="text-brand-green font-black">【組織づくり・チームビルディング・働き方のマインドセット】</strong>へと大きく適用範囲が広がっています。
                     </p>
                 </div>
             </div>
@@ -469,7 +501,7 @@
                 <div>
                     <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">07.
                         PREMISE 2</span>
-                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">前提整理②「アジャイルコミュニティ」とは？</h2>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">前提整理③「アジャイルコミュニティ」とは？</h2>
                 </div>
 
                 <div class="bg-white p-5 rounded-xl border-l-8 border-brand-green card-shadow my-auto space-y-4">
