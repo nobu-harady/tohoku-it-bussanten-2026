@@ -108,7 +108,7 @@
             </div>
             <div id="slide-number-header"
                 class="text-xs md:text-sm font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                1 / 20
+                1 / 21
             </div>
         </header>
 
@@ -158,7 +158,8 @@
                     <div class="flex-[1] flex flex-col items-center space-y-4 shrink-0 max-w-[300px]">
                         <div
                             class="w-56 h-56 md:w-64 md:h-64 rounded-full bg-white border-4 border-brand-green shadow-xl overflow-hidden relative">
-                            <img src="speaker.png" alt="登壇者" class="w-full h-full object-cover" style="transform: scale(1.85); transform-origin: center 18%;">
+                            <img src="speaker.png" alt="登壇者" class="w-full h-full object-cover"
+                                style="transform: scale(1.85); transform-origin: center 18%;">
                         </div>
                         <div class="text-center">
                             <h3 class="text-2xl md:text-3xl font-black text-brand-green">原田 頌久</h3>
@@ -347,10 +348,63 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: Premise 2 - Agile Community -->
+            <!-- SLIDE 6: What is Agile -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">06.
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">06. WHAT IS AGILE</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">そもそも「アジャイル」とは？</h2>
+                    <p class="text-base md:text-lg font-black text-gray-800">〜すばやく、柔軟に、対話しながら適応していくアプローチ〜</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto items-stretch max-w-5xl mx-auto w-full">
+                    <!-- Traditional Waterfall -->
+                    <div class="bg-white p-5 rounded-2xl border-2 border-gray-300 shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <span class="bg-gray-100 text-gray-600 text-xs font-black px-2.5 py-1 rounded-full">従来のアプローチ</span>
+                            <h3 class="font-extrabold text-xl text-gray-700 mt-3 flex items-center">
+                                <i class="fa-solid fa-arrow-down-long mr-2 text-gray-500"></i>ウォーターフォール（計画主導）
+                            </h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2.5 leading-relaxed">
+                                最初に完璧な計画を立て、順番に進めるやり方。<br>
+                                途中で「何か違うな」と思っても、後戻りや変更が極めて困難。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 text-xs font-bold text-gray-500">
+                            <i class="fa-solid fa-triangle-exclamation mr-1 text-red-400"></i>不確実で変化の激しい現代ではリスクが高い
+                        </div>
+                    </div>
+
+                    <!-- Agile -->
+                    <div class="bg-white p-5 rounded-2xl border-t-8 border-brand-green border-l border-r border-b border-gray-200 shadow-lg flex flex-col justify-between diagram-node">
+                        <div>
+                            <span class="bg-brand-green text-white text-xs font-black px-2.5 py-1 rounded-full">アジャイルのアプローチ</span>
+                            <h3 class="font-extrabold text-xl text-brand-green mt-3 flex items-center">
+                                <i class="fa-solid fa-arrows-spin mr-2 text-brand-orange animate-spin-slow"></i>アジャイル（適応・対話主導）
+                            </h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2.5 leading-relaxed">
+                                小さく作って試し、フィードバックを得ながら柔軟に改善を繰り返す。<strong class="text-brand-orange font-black underline decoration-brand-green decoration-2">「失敗からの学び」を前提にした進め方</strong>。
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 text-xs font-bold text-brand-orange">
+                            <i class="fa-solid fa-circle-check mr-1 text-brand-green"></i>状況の変化に合わせて軌道修正がしやすい
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expansion of Scope -->
+                <div class="bg-brand-yellowBg p-4 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-orange-200 shadow-md max-w-4xl mx-auto w-full text-center mt-2 diagram-node">
+                    <p class="text-xs md:text-sm text-gray-900 font-bold leading-relaxed">
+                        <span class="text-brand-orange font-black"><i class="fa-solid fa-rocket mr-1"></i>現在のアジャイルの広がり：</span><br class="md:hidden">
+                        元々はソフトウェア開発の手法でしたが、現在は「変化に適応し自律的に動く」ための<br class="hidden md:inline">
+                        <strong class="text-brand-green font-black">【組織づくり・チームビルディング・働き方のマインドセット】</strong>へと大きく適用範囲が広がっています。
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: Premise 2 - Agile Community -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">07.
                         PREMISE 2</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">前提整理②「アジャイルコミュニティ」とは？</h2>
                 </div>
@@ -409,10 +463,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 7: Joban Agile Origin & Scope -->
+            <!-- SLIDE 8: Joban Agile Origin & Scope -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">07. ORIGIN &
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">08. ORIGIN &
                         SCOPE</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルの誕生</h2>
                     <p class="text-base md:text-lg font-black text-gray-800 mt-3 md:mt-4">〜いわき起点から、しなやかな広がりへ〜</p>
@@ -493,10 +547,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 8: Origin Story 1a - Process (1) -->
+            <!-- SLIDE 9: Origin Story 1a - Process (1) -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">08. ORIGIN
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">09. ORIGIN
                         STORY 1a</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルの立ち上げストーリー①</h2>
                     <p class="text-base md:text-lg font-black text-gray-800">〜偶然の出会いから、懇親会の熱量へ〜</p>
@@ -544,10 +598,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 9: Origin Story 1b - Process (2) -->
+            <!-- SLIDE 10: Origin Story 1b - Process (2) -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">09. ORIGIN
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">10. ORIGIN
                         STORY 1b</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルの立ち上げストーリー②</h2>
                     <p class="text-base md:text-lg font-black text-gray-800">〜「やっちゃえば？」の一言から見切り発車の立ち上げへ〜</p>
@@ -582,10 +636,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 10: Origin Story 2 - Members -->
+            <!-- SLIDE 11: Origin Story 2 - Members -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">10. ORIGIN
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">11. ORIGIN
                         STORY 2</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">神輿を担ぎに集まった仲間たち</h2>
                     <p class="text-base md:text-lg font-black text-gray-800">〜福島愛とアジャイルが引き寄せた、県内外の多様なメンバー〜</p>
@@ -648,10 +702,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 11: Changes -->
+            <!-- SLIDE 12: Changes -->
             <div class="slide flex-col h-full justify-between">
                 <div class="mb-4 md:mb-6">
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">11.
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">12.
                         CHANGES</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">立ち上げ後に起きた「変化」</h2>
                 </div>
@@ -816,10 +870,10 @@
                 <div class="h-6"></div>
             </div>
 
-            <!-- SLIDE 12: Effectuation Theory -->
+            <!-- SLIDE 13: Effectuation Theory -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">12. THEORY
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">13. THEORY
                         1</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">立ち上がり＝「エフェクチュエーション」の体現</h2>
                 </div>
@@ -864,10 +918,10 @@
                 </p>
             </div>
 
-            <!-- SLIDE 13: 5 Principles -->
+            <!-- SLIDE 14: 5 Principles -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">13. THEORY
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">14. THEORY
                         2</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">エフェクチュエーションの5つの基本原則</h2>
                     <p class="text-base md:text-lg font-black text-gray-800">〜予測不能な状況下で、優れた成果を出すための5つのアプローチ〜</p>
@@ -949,10 +1003,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 14: Effectuation Application -->
+            <!-- SLIDE 15: Effectuation Application -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">14. THEORY
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">15. THEORY
                         3</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">エフェクチュエーションの原則と常磐アジャイル</h2>
                 </div>
@@ -1038,10 +1092,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 15: Weak Ties Theory -->
+            <!-- SLIDE 16: Weak Ties Theory -->
             <div class="slide flex-col h-full justify-between">
                 <div class="mb-4 md:mb-6">
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">15. THEORY
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">16. THEORY
                         4</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">「弱い結びつきの強み」が生んだ関係人口</h2>
                 </div>
@@ -1105,10 +1159,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 16: Community Values -->
+            <!-- SLIDE 17: Community Values -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">16.
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">17.
                         VALUES</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルが大切にしていること</h2>
                 </div>
@@ -1166,10 +1220,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 17: Future & Challenges -->
+            <!-- SLIDE 18: Future & Challenges -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">17.
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">18.
                         CHALLENGES</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">コミュニティの課題とこれから</h2>
                 </div>
@@ -1223,10 +1277,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 18: Summary -->
+            <!-- SLIDE 19: Summary -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">18.
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">19.
                         SUMMARY</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">まとめ</h2>
                 </div>
@@ -1269,10 +1323,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 19: Call to Action -->
+            <!-- SLIDE 20: Call to Action -->
             <div class="slide flex-col h-full justify-between">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">19. CALL TO
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">20. CALL TO
                         ACTION</span>
                     <h2 class="text-3xl md:text-5xl font-black text-brand-green">仲間を絶賛募集中です！</h2>
                 </div>
@@ -1308,7 +1362,8 @@
                     <a href="https://jouban-agile.connpass.com/" target="_blank" rel="noopener noreferrer"
                         onclick="window.open(this.href, '_blank'); return false;"
                         class="w-52 h-52 md:w-56 md:h-56 bg-white border-2 border-gray-300 p-4 rounded-2xl flex flex-col items-center justify-center shrink-0 shadow-xl diagram-node cursor-pointer hover:border-brand-orange transition-all duration-200">
-                        <img src="qr_code.png" alt="常磐アジャイル Connpass QR Code" class="w-36 h-36 md:w-44 md:h-44 object-contain">
+                        <img src="qr_code.png" alt="常磐アジャイル Connpass QR Code"
+                            class="w-36 h-36 md:w-44 md:h-44 object-contain">
                         <span class="text-[10px] font-black text-gray-500 mt-2 flex items-center">
                             <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-[9px]"></i>開く / スキャン
                         </span>
@@ -1316,10 +1371,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 20: Q&A / Closing -->
+            <!-- SLIDE 21: Q&A / Closing -->
             <div class="slide flex-col justify-center items-center text-center h-full space-y-4">
                 <div>
-                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">20.
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">21.
                         OUTRO</span>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-brand-green">Q & A / 最後に</h2>
                 </div>
@@ -1347,7 +1402,7 @@
                         </div>
                         <div class="text-xs md:text-sm text-gray-600 font-bold">
                             <p class="font-extrabold text-brand-green">原田 頌久 (nobu-harady)</p>
-                            <p class="mt-0.5">お気軽にフォロー・フィードバックしてください！</p>
+                            <p class="mt-0.5">お気軽なフォロー・フィードバックお待ちしております！</p>
                         </div>
                         <p class="text-[11px] md:text-xs text-brand-amber font-black tracking-wider">#東北IT物産展2026
                             #常磐アジャイル</p>
