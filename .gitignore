@@ -2,7 +2,6 @@
 scratch_*
 code_artifact_temp.txt
 code_artifact_backup.html
-speaker.png
 .DS_Store
 .vscode/
 input.md
