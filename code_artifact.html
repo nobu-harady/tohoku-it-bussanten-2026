@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITコミュニティが紡ぐ関係人口 〜アジャイルコミュニティがいわきで立ち上がった話〜</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#143d30',   /* 常磐ディープグリーン */
+                            orange: '#d94e11',  /* バーントオレンジ */
+                            amber: '#b85e00',   /* アンバーゴールド */
+                            yellowBg: '#fef3c7',/* ソフトイエロー背景 */
+                            bg: '#f8f9fa',      /* アイボリーホワイト */
+                            text: '#1f2937',    /* チャコールブラック */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #0b0f19;
+            color: #1f2937;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Fixed aspect ratio base size for scale-to-fit slide stage */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #f8f9fa;
+            flex-shrink: 0;
+            transform-origin: center center;
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+            height: 100%;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(20, 61, 48, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+        }
+
+        .diagram-node {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .diagram-node:hover {
+            transform: scale(1.03);
+        }
+
+        /* Fullscreen styles reset */
+        .slide-container:fullscreen {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 select-none flex items-center justify-center overflow-hidden">
+
+    <!-- Slide Stage / Aspect Frame -->
+    <div
+        class="relative w-full max-w-6xl slide-container rounded-xl shadow-2xl overflow-hidden flex flex-col justify-between border border-slate-700">
+
+        <!-- Top Bar / Header -->
+        <header id="slide-header"
+            class="w-full px-8 py-3 flex justify-between items-center z-10 border-b border-gray-200/50 bg-white/70 backdrop-blur-sm">
+            <div class="flex items-center space-x-3">
+                <span class="inline-block w-3 h-3 rounded-full bg-brand-orange"></span>
+                <span class="text-xs md:text-sm font-bold text-brand-green tracking-wide">東北IT物産展2026</span>
+            </div>
+            <div id="slide-number-header"
+                class="text-xs md:text-sm font-bold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                1 / 20
+            </div>
+        </header>
+
+        <!-- Slide Content Wrapper -->
+        <main class="flex-1 relative overflow-hidden flex flex-col justify-center px-8 md:px-16 py-4">
+
+            <!-- SLIDE 1: Title -->
+            <div class="slide active flex-col justify-center items-center text-center h-full space-y-6">
+                <div
+                    class="inline-block px-4 py-1.5 rounded-full bg-brand-yellowBg text-brand-amber font-bold text-sm md:text-base border border-amber-200 shadow-sm">
+                    東北IT物産展2026
+                </div>
+                <div class="space-y-3">
+                    <h1 class="text-4xl md:text-5xl font-black text-brand-green leading-tight max-w-4xl tracking-tight">
+                        ITコミュニティが紡ぐ関係人口
+                    </h1>
+                    <p class="text-xl md:text-2xl font-extrabold text-brand-orange">
+                        〜アジャイルコミュニティがいわきで立ち上がった話〜
+                    </p>
+                </div>
+
+                <!-- Title Graphic Illustration -->
+                <div class="my-3 py-2 flex items-center justify-center">
+                    <div class="relative p-2 bg-white rounded-2xl shadow-md border-2 border-brand-green/20">
+                        <img src="jouban.webp" alt="常磐アジャイル" class="h-28 md:h-36 object-contain">
+                    </div>
+                </div>
+
+                <!-- Speaker Info Footer -->
+                <div class="text-gray-700 space-y-1 mt-2">
+                    <p class="text-xs md:text-sm text-gray-500 font-bold tracking-widest uppercase">Presenter</p>
+                    <p class="text-lg md:text-xl font-black text-brand-green">原田 頌久 <span
+                            class="text-sm font-bold text-gray-600">/ 常磐アジャイル</span></p>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Self Intro (Manual) -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">02.
+                        INTRODUCTION</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">自己紹介</h2>
+                </div>
+
+                <div
+                    class="flex-1 my-3 bg-emerald-50/10 p-4 md:p-8 rounded-2xl flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto w-full my-auto">
+                    <!-- Left: Avatar frame -->
+                    <div class="flex-[1] flex flex-col items-center space-y-4 shrink-0 max-w-[300px]">
+                        <div
+                            class="w-56 h-56 md:w-64 md:h-64 rounded-full bg-white border-4 border-brand-green shadow-xl overflow-hidden relative">
+                            <img src="speaker.png" alt="登壇者" class="w-full h-full object-cover">
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl md:text-3xl font-black text-brand-green">原田 頌久</h3>
+                            <p class="text-xs md:text-sm font-bold text-gray-500 tracking-widest mt-1">常磐アジャイル コミュニティ
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Large Info cards (Width balanced via flex-[1.4]) -->
+                    <div class="flex-[1.4] space-y-6 w-full">
+                        <!-- Card 1: Work -->
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-brand-green border-t border-r border-b border-gray-100 diagram-node">
+                            <p class="font-black text-brand-green text-xl md:text-2xl flex items-center mb-2.5">
+                                <i class="fa-solid fa-id-card mr-2.5 text-brand-orange text-2xl"></i>普段の活動 / 本業
+                            </p>
+                            <p class="text-gray-900 text-base md:text-lg font-bold leading-relaxed">
+                                クレジットカード会社にて、toB向けのプロダクトオーナーとして勤務。<br>
+                                プライベートでは、コミュニティ運営や個人開発を気ままに嗜む。
+                            </p>
+                        </div>
+
+                        <!-- Card 2: Tohoku / Fukushima (Unified) -->
+                        <div
+                            class="bg-white p-6 rounded-2xl shadow-md border-l-8 border-brand-orange border-t border-r border-b border-gray-100 diagram-node">
+                            <p class="font-black text-brand-green text-xl md:text-2xl flex items-center mb-2.5">
+                                <i class="fa-solid fa-map-location-dot mr-2.5 text-brand-orange text-2xl"></i>東北・福島とのご縁
+                            </p>
+                            <p class="text-gray-900 text-base md:text-lg font-bold leading-relaxed">
+                                岩手県盛岡市出身。東京在住ですが、年に3〜4回は東北のどこかにいます。<br>
+                                福島県内にも親戚や同級生が住んでおり、勝手に親近感を抱いています。<br>
+                                昔交際していた方がいわき在住だったので、福島と聞くとエモい気持ちになります笑
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Key Question -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">03.
+                        MISSION</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">本セッションのテーマ</h2>
+                </div>
+
+                <div
+                    class="bg-brand-green text-white p-8 rounded-2xl text-center my-auto shadow-xl relative overflow-hidden max-w-4xl mx-auto w-full">
+                    <div class="absolute -right-6 -bottom-6 opacity-10 text-white text-9xl"><i
+                            class="fa-solid fa-comments"></i></div>
+                    <p class="text-lg md:text-2xl font-bold relative z-10 leading-loose">
+                        コミュニティは単なるインプットの場を超え、<br class="hidden md:inline">
+                        <span
+                            class="text-yellow-200 font-black text-2xl md:text-4xl block mt-4">誰もが「関係人口」として地域に貢献できる、<br
+                                class="hidden md:inline">オープンソースな繋がりを作れるか？</span>
+                    </p>
+                </div>
+
+                <div class="h-6"></div>
+            </div>
+
+            <!-- SLIDE 4: Agenda -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">04.
+                        AGENDA</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">本日のアジェンダ</h2>
+                </div>
+
+                <!-- 3 Key Agenda Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto items-stretch">
+                    <div
+                        class="bg-white p-6 rounded-xl border-t-8 border-brand-green shadow-lg flex flex-col justify-between relative diagram-node">
+                        <div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-emerald-100 text-brand-green flex items-center justify-center font-black text-lg mb-3">
+                                1</div>
+                            <h3 class="font-extrabold text-xl md:text-2xl text-brand-green">コミュニティ立ち上げのストーリーと変化</h3>
+                            <p class="text-base md:text-lg font-bold text-gray-900 mt-3 leading-relaxed">
+                                RSGT2026での「見切り発車」から始まったコミュニティと、そこから生まれた予想外の変化</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-center">
+                            <i class="fa-solid fa-map-location-dot text-brand-green text-4xl"></i>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-xl border-t-8 border-brand-orange shadow-lg flex flex-col justify-between relative diagram-node">
+                        <div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center font-black text-lg mb-3">
+                                2</div>
+                            <h3 class="font-extrabold text-xl md:text-2xl text-brand-green">関係人口を生むコミュニティ理論</h3>
+                            <p class="text-base md:text-lg font-bold text-gray-900 mt-3 leading-relaxed">
+                                エフェクチュエーションと「弱い結びつき」による無理のない巻き込みの構造</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-center">
+                            <i class="fa-solid fa-diagram-project text-brand-orange text-4xl"></i>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-xl border-t-8 border-brand-amber shadow-lg flex flex-col justify-between relative diagram-node">
+                        <div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-amber-100 text-brand-amber flex items-center justify-center font-black text-lg mb-3">
+                                3</div>
+                            <h3 class="font-extrabold text-xl md:text-2xl text-brand-green">私たちが大切にしていること、今後の課題</h3>
+                            <p class="text-base md:text-lg font-bold text-gray-900 mt-3 leading-relaxed">
+                                「背伸びをしない」現地第一の運営スタンスと、福島で継続していくための課題</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-center">
+                            <i class="fa-solid fa-shoe-prints text-brand-amber text-4xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-6"></div>
+            </div>
+
+            <!-- SLIDE 5: Premise 1 - Relational Population -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">05.
+                        PREMISE 1</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">前提整理①「関係人口」とは？</h2>
+                </div>
+                <p class="text-lg md:text-2xl font-black text-brand-text mt-8 mb-4 text-center">
+                    <br><br>移住でも観光でもない、<span
+                        class="text-brand-orange underline decoration-brand-orange decoration-2">「地域と継続的に深く関わる人々」</span>
+                </p>
+
+                <!-- Graphic Diagram comparing 3 populations -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto items-stretch">
+                    <!-- 定住人口 -->
+                    <div
+                        class="bg-white p-5 rounded-xl border-2 border-gray-300 card-shadow text-center flex flex-col justify-between diagram-node">
+                        <div>
+                            <div
+                                class="w-16 h-16 mx-auto rounded-full bg-gray-100 flex items-center justify-center mb-2">
+                                <i class="fa-solid fa-house-user text-3xl text-gray-600"></i>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-gray-900">定住人口</h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5">地域に住んでいる人</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200">
+                            <span
+                                class="inline-block bg-red-200 text-red-900 text-sm px-3.5 py-1.5 rounded-full font-black">ハードルが高い</span>
+                        </div>
+                    </div>
+
+                    <!-- 交流人口 -->
+                    <div
+                        class="bg-white p-5 rounded-xl border-2 border-gray-300 card-shadow text-center flex flex-col justify-between diagram-node">
+                        <div>
+                            <div
+                                class="w-16 h-16 mx-auto rounded-full bg-gray-100 flex items-center justify-center mb-2">
+                                <i class="fa-solid fa-plane-departure text-3xl text-gray-600"></i>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-gray-900">交流人口</h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5">観光客・一時訪問者</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200">
+                            <span
+                                class="inline-block bg-gray-200 text-gray-800 text-sm px-3.5 py-1.5 rounded-full font-black">一発的・関わりが浅い</span>
+                        </div>
+                    </div>
+
+                    <!-- 関係人口 (Highlighted) -->
+                    <div
+                        class="bg-brand-yellowBg p-5 rounded-xl border-4 border-brand-orange card-shadow text-center flex flex-col justify-between relative transform scale-105 shadow-xl diagram-node">
+                        <div
+                            class="absolute -top-3.5 right-4 bg-brand-orange text-white text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Result</div>
+                        <div>
+                            <div
+                                class="w-16 h-16 mx-auto rounded-full bg-amber-200 flex items-center justify-center mb-2">
+                                <i class="fa-solid fa-handshake-angle text-3xl text-brand-orange"></i>
+                            </div>
+                            <h3 class="font-extrabold text-xl text-brand-green">関係人口 ★</h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5">関心を持ち、多様に関わり続ける人</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-amber-400">
+                            <span
+                                class="inline-block bg-brand-orange text-white text-sm px-3.5 py-1.5 rounded-full font-black shadow-md">活動の結果生まれた繋がり！</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Premise 2 - Agile Community -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">06.
+                        PREMISE 2</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">前提整理②「アジャイルコミュニティ」とは？</h2>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border-l-8 border-brand-green card-shadow my-auto space-y-4">
+                    <p class="text-lg md:text-2xl font-black text-brand-green text-center">
+                        単なる開発手法にとどまらず、人と人が対話・協力し価値を作る<br>
+                        <span class="text-brand-orange underline font-black">「実践共同体（CoP = Community of Practice）」</span>
+                    </p>
+
+                    <!-- Comparison Diagram: Lecture vs CoP -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- Traditional Lecture -->
+                        <div
+                            class="bg-white p-5 rounded-xl border-2 border-gray-300 shadow-md flex flex-col justify-between diagram-node">
+                            <div class="flex items-center space-x-2 text-gray-800 font-black text-base md:text-lg mb-2">
+                                <i class="fa-solid fa-chalkboard-user text-xl"></i>
+                                <span>一般的な一方通行の勉強会</span>
+                            </div>
+                            <div class="flex items-center justify-center py-3 space-x-4 text-gray-600">
+                                <div class="text-center"><i class="fa-solid fa-user text-2xl"></i><br><span
+                                        class="text-xs font-bold text-gray-900">講師</span></div>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                                <div class="text-center"><i class="fa-solid fa-users text-2xl"></i><br><span
+                                        class="text-xs font-bold text-gray-900">受講者（情報受信）</span></div>
+                            </div>
+                            <p class="text-sm md:text-base font-bold text-gray-900 text-center mt-1">「情報をもらって終わり」になりがち
+                            </p>
+                        </div>
+
+                        <!-- CoP (Agile Community) -->
+                        <div
+                            class="bg-white p-5 rounded-xl border-l-8 border-brand-green border-t-2 border-r-2 border-b-2 border-gray-200 shadow-md flex flex-col justify-between diagram-node">
+                            <div
+                                class="flex items-center space-x-2 text-brand-green font-black text-base md:text-lg mb-2">
+                                <i class="fa-solid fa-people-arrows text-xl text-brand-orange"></i>
+                                <span>アジャイルコミュニティ（CoP）</span>
+                            </div>
+                            <div class="flex items-center justify-center py-3 space-x-2 text-brand-green">
+                                <i class="fa-solid fa-circle-nodes text-4xl text-brand-orange"></i>
+                            </div>
+                            <p class="text-sm md:text-base font-black text-brand-green text-center mt-1">
+                                共通のテーマを通じた「対話・相互フィードバック・共創」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 text-center text-sm md:text-base font-black text-gray-900">
+                    <div class="bg-white p-3 rounded-lg border-2 border-gray-300 shadow-sm"><i
+                            class="fa-solid fa-code text-brand-orange mr-1.5"></i>プロダクト開発</div>
+                    <div class="bg-white p-3 rounded-lg border-2 border-gray-300 shadow-sm"><i
+                            class="fa-solid fa-users-gear text-brand-orange mr-1.5"></i>チーム＆組織づくり</div>
+                    <div class="bg-white p-3 rounded-lg border-2 border-gray-300 shadow-sm"><i
+                            class="fa-solid fa-comments text-brand-orange mr-1.5"></i>対話と社会学的アプローチ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: Joban Agile Origin & Scope -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">07. ORIGIN &
+                        SCOPE</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルの誕生</h2>
+                    <p class="text-base md:text-lg font-black text-gray-800 mt-3 md:mt-4">〜いわき起点から、しなやかな広がりへ〜</p>
+                </div>
+
+                <!-- Scope Map & Flow Illustration -->
+                <div class="bg-white p-5 rounded-xl border border-gray-200 card-shadow my-auto space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-center text-center">
+
+                        <!-- Point 1: Iwaki -->
+                        <div
+                            class="p-5 bg-white rounded-xl border-l-8 border-brand-green border-t-2 border-r-2 border-b-2 border-gray-200 shadow-md diagram-node flex flex-col justify-between">
+                            <div>
+                                <span
+                                    class="bg-brand-green text-white text-xs px-2.5 py-1 rounded-full font-black">起点</span>
+                                <h4 class="font-extrabold text-brand-green text-lg md:text-xl mt-1.5"><i
+                                        class="fa-solid fa-location-dot text-brand-orange mr-1"></i>いわき</h4>
+                                <p class="text-sm md:text-base font-bold text-gray-900 mt-2">在住者を起点としたスモールスタート</p>
+                            </div>
+                        </div>
+
+                        <!-- Connection Card (Enclosed Route) -->
+                        <div
+                            class="p-5 bg-orange-50/40 rounded-xl border-2 border-dashed border-brand-orange/50 shadow-sm flex flex-col justify-center items-center text-center diagram-node">
+                            <div class="space-y-2">
+                                <i class="fa-solid fa-route text-3xl text-brand-orange animate-pulse"></i>
+                                <h4 class="font-extrabold text-brand-orange text-base md:text-lg">常磐道沿線・交流</h4>
+                                <p class="text-[11px] font-bold text-gray-700 leading-relaxed">
+                                    いわきと県外・各地域を繋ぐしなやかな交通・対話ルート</p>
+                            </div>
+                        </div>
+
+                        <!-- Point 2: Fukushima & Beyond -->
+                        <div
+                            class="p-5 bg-white rounded-xl border-l-8 border-brand-amber border-t-2 border-r-2 border-b-2 border-gray-200 shadow-md diagram-node flex flex-col justify-between">
+                            <div>
+                                <span
+                                    class="bg-brand-amber text-white text-xs px-2.5 py-1 rounded-full font-black">広がり</span>
+                                <h4 class="font-extrabold text-brand-amber text-lg md:text-xl mt-1.5"><i
+                                        class="fa-solid fa-map text-brand-orange mr-1"></i>福島全域・沿線</h4>
+                                <p class="text-sm md:text-base font-bold text-gray-900 mt-2">地域境界にとらわれないオープンな参加</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-white rounded-xl border-2 border-gray-300 shadow-md text-center">
+                        <p class="text-sm md:text-lg font-black text-brand-green">
+                            <i
+                                class="fa-solid fa-seedling text-brand-orange mr-2 text-xl"></i>将来的な「福島アジャイル」への発展・再出発も大歓迎という柔軟な許容度
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 items-stretch mt-3">
+                    <!-- Left: Core Message -->
+                    <div
+                        class="flex-1 bg-brand-yellowBg p-3 rounded-xl border-2 border-brand-orange shadow-md flex items-center justify-center text-center diagram-node">
+                        <p class="text-xs md:text-sm text-brand-amber font-black leading-relaxed">
+                            <i class="fa-solid fa-lightbulb mr-1.5 text-brand-orange"></i>
+                            最初から境界線を作らないことが、飛び込みやすさを作る！
+                        </p>
+                    </div>
+                    <!-- Right: Community Page Image (Clickable Link) -->
+                    <a href="https://jouban-agile.connpass.com/" target="_blank" rel="noopener noreferrer"
+                        onclick="window.open(this.href, '_blank'); return false;"
+                        class="flex-[1.2] bg-white p-2 rounded-xl border border-gray-200 shadow-md flex items-center justify-between gap-3 diagram-node cursor-pointer hover:border-brand-orange transition-all duration-200">
+                        <div class="space-y-1 pl-2 text-left">
+                            <span
+                                class="bg-brand-orange text-white text-[9px] font-black px-2 py-0.5 rounded-full">Connpass
+                                Page <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></span>
+                            <h4 class="font-extrabold text-brand-green text-xs md:text-sm">実際のコミュニティサイト</h4>
+                            <p class="text-[9px] text-gray-500 font-bold font-mono">jouban-agile.connpass.com</p>
+                        </div>
+                        <div
+                            class="w-36 h-16 rounded-lg overflow-hidden border border-gray-300 shadow-inner shrink-0 relative">
+                            <img src="jouban1.png" alt="常磐アジャイル コミュニティページ" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SLIDE 8: Origin Story 1a - Process (1) -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">08. ORIGIN
+                        STORY 1a</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルの立ち上げストーリー①</h2>
+                    <p class="text-base md:text-lg font-black text-gray-800">〜偶然の出会いから、懇親会の熱量へ〜</p>
+                </div>
+
+                <div
+                    class="flex-1 my-3 bg-white p-6 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between max-w-4xl mx-auto w-full my-auto">
+                    <!-- Timeline SVG / Graphic -->
+                    <div class="relative py-4 flex flex-col space-y-6 justify-center flex-1">
+                        <div class="absolute left-6 top-6 bottom-6 w-1 bg-brand-orange/30"></div>
+
+                        <!-- Step 1 -->
+                        <div class="flex items-start space-x-4 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-100 border-2 border-brand-orange flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-comments text-brand-orange text-lg"></i>
+                            </div>
+                            <div class="bg-orange-50/50 p-4 rounded-lg border border-orange-100 flex-1 diagram-node">
+                                <p class="text-xs font-black text-brand-orange">STEP 1: 偶然の出会い</p>
+                                <p class="text-sm md:text-base font-bold text-gray-900 leading-relaxed mt-1">
+                                    東京で開催されたRSGT2026の廊下立ち話や懇親会で、福島にゆかりのあるアジャイル関心層が繋がる
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex items-start space-x-4 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-emerald-100 border-2 border-brand-green flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-beer-mug-empty text-brand-green text-lg"></i>
+                            </div>
+                            <div class="bg-emerald-50/50 p-4 rounded-lg border border-emerald-100 flex-1 diagram-node">
+                                <p class="text-xs font-black text-brand-green">STEP 2: 懇親会での盛り上がり</p>
+                                <p class="text-sm md:text-base font-bold text-gray-900 leading-relaxed mt-1">
+                                    「いつか福島でイベントやりたいね！」という会話に「やっちゃえば？」と返す
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-yellowBg p-3 rounded-xl text-center border border-brand-orange shadow-sm mt-1">
+                    <p class="text-xs md:text-sm text-brand-amber font-black">
+                        最初は東京での何気ない会話でしたが、アジャイルの熱量が福島への想いと共鳴し始めました
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 9: Origin Story 1b - Process (2) -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">09. ORIGIN
+                        STORY 1b</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルの立ち上げストーリー②</h2>
+                    <p class="text-base md:text-lg font-black text-gray-800">〜「やっちゃえば？」の一言から見切り発車の立ち上げへ〜</p>
+                </div>
+
+                <div
+                    class="flex-1 my-3 bg-white p-6 rounded-xl border-l-8 border-brand-green border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between max-w-4xl mx-auto w-full my-auto">
+                    <!-- Timeline SVG / Graphic -->
+                    <div class="relative py-4 flex flex-col space-y-6 justify-center flex-1">
+                        <div class="absolute left-6 top-6 bottom-6 w-1 bg-brand-green/30"></div>
+
+                        <!-- Step 3 -->
+                        <div class="flex items-start space-x-4 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-brand-green border-2 border-white flex items-center justify-center shrink-0 shadow-lg">
+                                <i class="fa-solid fa-rocket text-white text-lg animate-bounce"></i>
+                            </div>
+                            <div class="bg-brand-green text-white p-5 rounded-lg shadow-md flex-1 diagram-node">
+                                <p class="text-xs font-black text-yellow-200">STEP 3: 見切り発車の立ち上げ！</p>
+                                <p class="text-sm md:text-base font-extrabold leading-relaxed mt-2.5">
+                                    「やっちゃえば？」の一言をきっかけに、計画も中身もないまま、本当にコミュニティが発足へ！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-yellowBg p-3 rounded-xl text-center border border-brand-orange shadow-sm mt-1">
+                    <p class="text-xs md:text-sm text-brand-amber font-black">
+                        緻密な事前計画ではなく、一歩を踏み出す「見切り発車」が、すべての始まりになりました
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 10: Origin Story 2 - Members -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">10. ORIGIN
+                        STORY 2</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">神輿を担ぎに集まった仲間たち</h2>
+                    <p class="text-base md:text-lg font-black text-gray-800">〜福島愛とアジャイルが引き寄せた、県内外の多様なメンバー〜</p>
+                </div>
+
+                <div
+                    class="flex-1 my-3 bg-white p-6 rounded-xl border-l-8 border-brand-green border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between max-w-4xl mx-auto w-full my-auto">
+                    <!-- Graphical Diagram representing members -->
+                    <div class="flex-1 flex flex-col justify-center items-center py-6 w-full max-w-3xl mx-auto">
+                        <!-- 3 Column Flex Layout: Left Carrier | Center Palanquin | Right Carrier -->
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 w-full">
+                            <!-- Left Carrier -->
+                            <div class="flex flex-col items-center space-y-2">
+                                <span
+                                    class="bg-white border-2 border-brand-orange px-4 py-2.5 rounded-xl text-sm font-black text-brand-orange shadow-md flex items-center diagram-node">
+                                    <i class="fa-solid fa-user-gear mr-2 text-base"></i>県外のアジャイル層 (多数)
+                                </span>
+                                <div class="hidden md:flex flex-col items-center">
+                                    <span class="text-[10px] text-brand-orange font-black">神輿を担ぎに集結！</span>
+                                    <i class="fa-solid fa-arrow-right text-brand-orange text-lg mt-1 animate-pulse"></i>
+                                </div>
+                            </div>
+
+                            <!-- Center Palanquin (Palanquin / Mikoshi) -->
+                            <div
+                                class="relative w-64 h-36 bg-emerald-50 rounded-2xl border border-emerald-200 flex flex-col items-center justify-center shadow-inner diagram-node shrink-0">
+                                <div class="text-brand-green font-black text-lg flex flex-col items-center mb-1.5">
+                                    <i class="fa-solid fa-mountain-sun text-4xl text-brand-orange mb-1"></i>
+                                    <span>常磐アジャイル</span>
+                                </div>
+                                <span
+                                    class="bg-brand-green text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm">神輿
+                                    (コミュニティ)</span>
+                            </div>
+
+                            <!-- Right Carrier -->
+                            <div class="flex flex-col items-center space-y-2">
+                                <span
+                                    class="bg-white border-2 border-brand-green px-4 py-2.5 rounded-xl text-sm font-black text-brand-green shadow-md flex items-center diagram-node">
+                                    <i class="fa-solid fa-user-pin mr-2 text-base"></i>現地在住者 (1名)
+                                </span>
+                                <div class="hidden md:flex flex-col items-center">
+                                    <span class="text-[10px] text-brand-green font-black">いわきで神輿を準備！</span>
+                                    <i class="fa-solid fa-arrow-left text-brand-green text-lg mt-1 animate-pulse"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p
+                            class="text-sm md:text-base font-bold text-gray-900 text-center mt-6 px-6 leading-relaxed max-w-2xl">
+                            福島愛はあるが県外に住む仲間たちが、少しの頑張る人の熱に当てられて、共に神輿を担ぎに集まりました。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-yellowBg p-3 rounded-xl text-center border border-brand-orange shadow-sm mt-1">
+                    <p class="text-xs md:text-sm text-brand-amber font-black">
+                        「アジャイル開発を学ぶ」はずの人々が、「福島」をキーワードに繋がり、新たなコミュニティが形成された
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 11: Changes -->
+            <div class="slide flex-col h-full justify-between">
+                <div class="mb-4 md:mb-6">
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">11.
+                        CHANGES</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">立ち上げ後に起きた「変化」</h2>
+                </div>
+
+                <div
+                    class="flex-1 my-2 bg-transparent grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch mt-2 md:mt-4">
+                    <!-- Left: Propagation Network Illustration -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-gray-200 shadow-md h-full flex flex-col justify-between diagram-node">
+                        <div>
+                            <span
+                                class="bg-orange-200 text-brand-orange text-xs font-black px-2.5 py-1 rounded-full">反響の広がり</span>
+                            <h3 class="font-extrabold text-brand-green mt-3 text-lg md:text-xl flex items-center">
+                                <i class="fa-solid fa-tower-broadcast mr-2 text-brand-orange"></i>名前決定前の「噂の拡散」
+                            </h3>
+                        </div>
+
+                        <!-- Graphical Network Representation -->
+                        <div class="flex-1 flex flex-col justify-center items-center py-2">
+                            <div class="relative w-full max-w-[280px] h-32 flex items-center justify-center">
+                                <!-- Core Node -->
+                                <div
+                                    class="w-16 h-16 rounded-full bg-brand-orange text-white flex items-center justify-center font-black text-xs text-center z-10 shadow-lg border-2 border-white">
+                                    発足の噂
+                                </div>
+                                <!-- Network Nodes surrounding -->
+                                <div
+                                    class="absolute top-2 left-6 w-10 h-10 rounded-full bg-orange-100 border border-brand-orange text-[10px] font-bold text-brand-orange flex items-center justify-center shadow">
+                                    関心層
+                                </div>
+                                <div
+                                    class="absolute bottom-2 left-10 w-12 h-12 rounded-full bg-emerald-100 border border-brand-green text-[10px] font-bold text-brand-green flex items-center justify-center shadow text-center leading-tight">
+                                    参加<br>希望者
+                                </div>
+                                <div
+                                    class="absolute top-6 right-4 w-12 h-12 rounded-full bg-amber-100 border border-brand-amber text-[10px] font-bold text-brand-amber flex items-center justify-center shadow text-center leading-tight">
+                                    進捗<br>観察者
+                                </div>
+                                <div
+                                    class="absolute bottom-6 right-8 w-10 h-10 rounded-full bg-gray-100 border border-gray-400 text-[10px] font-bold text-gray-600 flex items-center justify-center shadow">
+                                    他地域
+                                </div>
+                                <!-- SVG Connections -->
+                                <svg class="absolute inset-0 w-full h-full text-gray-300 pointer-events-none"
+                                    viewBox="0 0 280 144">
+                                    <line x1="140" y1="72" x2="60" y2="30" stroke="#d94e11" stroke-width="2"
+                                        stroke-dasharray="3 3" />
+                                    <line x1="140" y1="72" x2="70" y2="120" stroke="#d94e11" stroke-width="2"
+                                        stroke-dasharray="3 3" />
+                                    <line x1="140" y1="72" x2="225" y2="40" stroke="#d94e11" stroke-width="2"
+                                        stroke-dasharray="3 3" />
+                                    <line x1="140" y1="72" x2="215" y2="110" stroke="#d94e11" stroke-width="2"
+                                        stroke-dasharray="3 3" />
+                                </svg>
+                            </div>
+                            <p
+                                class="text-[11px] md:text-xs font-bold text-gray-900 text-center mt-2.5 px-2 leading-relaxed">
+                                お酒の勢いで見切り発車したため、名前が未決定の段階から「噂」だけが一人歩きして参加希望者が集まりました。
+                            </p>
+
+                            <!-- Name Candidate Tags (Brainstorming) -->
+                            <div
+                                class="mt-2.5 pt-2 border-t border-dashed border-gray-200 w-full flex flex-col items-center">
+                                <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1.5"><i
+                                        class="fa-solid fa-lightbulb text-brand-orange mr-1"></i>名前のブレスト候補（実際に出た案）</span>
+                                <div class="flex flex-wrap gap-1 justify-center max-w-[310px]">
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">ままどおるアジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">ハワイアンジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">いなわすくらむ</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">がんばっぺアジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">ララミューアジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">白虎アジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">ハッピーアイランドアジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">ふらふらスクラム</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">浜通りアジャイル</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">iwaki-scrum</span>
+                                    <span
+                                        class="bg-gray-50 text-gray-600 text-[8px] md:text-[9px] font-black px-1.5 py-0.5 rounded shadow-sm hover:scale-105 transition-transform hover:bg-orange-50">sf-fukushima</span>
+                                    <span
+                                        class="bg-emerald-50 text-brand-green text-[8px] md:text-[9px] font-black px-2 py-0.5 rounded border border-emerald-200 shadow-sm hover:scale-105 transition-transform">常磐アジャイル（決定）</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Invisible Wall and Bridge Illustration -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-green border-t border-r border-b border-gray-200 shadow-md h-full flex flex-col justify-between diagram-node">
+                        <div>
+                            <span
+                                class="bg-emerald-200 text-brand-green text-xs font-black px-2.5 py-1 rounded-full">潜在的なニーズ</span>
+                            <h3 class="font-extrabold text-brand-green mt-2.5 text-lg md:text-xl flex items-center">
+                                <i class="fa-solid fa-bridge-water mr-2 text-brand-green"></i>地域愛と「関わり方の壁」
+                            </h3>
+                        </div>
+
+                        <!-- Barrier vs Connection Illustration -->
+                        <div class="flex-1 flex flex-col justify-center items-center py-2">
+                            <div class="relative w-full max-w-[280px] h-32 flex items-center justify-between px-2">
+                                <!-- Left side: heart/love -->
+                                <div class="flex flex-col items-center z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-rose-100 border-2 border-rose-400 flex items-center justify-center shadow-md animate-pulse">
+                                        <i class="fa-solid fa-heart text-rose-500 text-xl"></i>
+                                    </div>
+                                    <span class="text-[9px] font-black text-rose-600 mt-1">福島への地域愛</span>
+                                </div>
+
+                                <!-- Center Barrier / Bridge -->
+                                <div class="flex-1 flex flex-col items-center justify-center px-2 relative h-full">
+                                    <!-- Dashed Bridge Arch over the wall -->
+                                    <div
+                                        class="absolute top-3 left-1/2 -translate-x-1/2 w-[150px] h-10 border-t-4 border-dashed border-brand-orange/60 rounded-t-full pointer-events-none">
+                                    </div>
+
+                                    <!-- Bridge Badge -->
+                                    <span
+                                        class="absolute top-0 bg-brand-orange text-white text-[8px] font-black px-2 py-0.5 rounded-full shadow z-20">
+                                        常磐アジャイルが架け橋に！
+                                    </span>
+
+                                    <!-- Barrier wall -->
+                                    <div class="h-12 w-2.5 bg-gray-300 rounded shadow-inner z-10 mt-6 relative">
+                                        <div class="absolute -top-3 -left-1.5 text-gray-400"><i
+                                                class="fa-solid fa-ban text-[10px]"></i></div>
+                                    </div>
+
+                                    <!-- Text on barrier -->
+                                    <span
+                                        class="bg-gray-100 border border-gray-300 text-gray-500 text-[8px] font-bold px-1 py-0.5 rounded shadow-sm absolute -bottom-1 text-center w-[95px] z-10 leading-tight">
+                                        関わり方・仲間が<br>見つからない壁
+                                    </span>
+                                </div>
+
+                                <!-- Right side: regional connection -->
+                                <div class="flex flex-col items-center z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-emerald-100 border-2 border-brand-green flex items-center justify-center shadow-md">
+                                        <i class="fa-solid fa-mountain-sun text-brand-green text-xl"></i>
+                                    </div>
+                                    <span class="text-[9px] font-black text-brand-green mt-1">福島（地域）</span>
+                                </div>
+                            </div>
+                            <p
+                                class="text-[11px] md:text-xs font-bold text-gray-900 text-center mt-3 px-2 leading-relaxed">
+                                多くのメンバーは「福島を愛しているが、関わるきっかけや仲間がいなかった」人々。コミュニティがその壁を取り払う存在となりました。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-6"></div>
+            </div>
+
+            <!-- SLIDE 12: Effectuation Theory -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">12. THEORY
+                        1</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">立ち上がり＝「エフェクチュエーション」の体現</h2>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border-l-8 border-brand-orange card-shadow my-auto space-y-4">
+                    <h3 class="text-xl md:text-2xl font-black text-brand-green">
+                        熟達した起業家の行動原理「エフェクチュエーション」
+                    </h3>
+
+                    <!-- Comparison Illustration: Waterfall Plan vs Effectuation -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                        <div
+                            class="p-4 bg-white rounded-xl border-2 border-gray-300 shadow-sm text-center diagram-node">
+                            <span class="text-sm md:text-base font-extrabold text-gray-600">事前計画型（コーザル）</span>
+                            <div
+                                class="my-2.5 text-gray-700 flex items-center justify-center space-x-1.5 text-sm md:text-base font-bold">
+                                <span>大計画</span> <i class="fa-solid fa-arrow-right"></i> <span>実行</span>
+                            </div>
+                            <p class="text-xs md:text-sm font-bold text-gray-800">予期せぬ変化に対応しづらい</p>
+                        </div>
+                        <div
+                            class="p-4 bg-white rounded-xl border-l-8 border-brand-orange border-t-2 border-r-2 border-b-2 border-gray-200 shadow-md text-center diagram-node">
+                            <span
+                                class="text-sm md:text-base font-extrabold text-brand-orange">手持ちの手段駆動（エフェクチュエーション）</span>
+                            <div
+                                class="my-2.5 text-brand-orange flex items-center justify-center space-x-1.5 text-sm md:text-base font-black">
+                                <span>手元のカード</span> <i class="fa-solid fa-arrows-rotate"></i> <span>対話と創発</span>
+                            </div>
+                            <p class="text-xs md:text-sm font-black text-brand-orange">不確実な環境下で強い！</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-green border-t-2 border-r-2 border-b-2 border-gray-200 shadow-md text-sm md:text-base font-bold text-gray-900 leading-relaxed diagram-node">
+                        <p class="font-extrabold text-brand-green text-base md:text-lg mb-1">＜アジャイル精神との合致＞</p>
+                        「小さく試して、フィードバックを得て、適応する」サイクルそのもの。
+                    </div>
+                </div>
+
+                <p class="text-center font-black text-brand-amber text-sm md:text-lg mt-3">
+                    常磐アジャイルは、巨大な事前計画ではなく「手元の行動」から自然発生的に誕生した
+                </p>
+            </div>
+
+            <!-- SLIDE 13: 5 Principles -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">13. THEORY
+                        2</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">エフェクチュエーションの5つの基本原則</h2>
+                    <p class="text-base md:text-lg font-black text-gray-800">〜予測不能な状況下で、優れた成果を出すための5つのアプローチ〜</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto items-stretch">
+                    <!-- Principle 1 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-t-8 border-brand-green shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-green text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-crow mr-2 text-brand-green"></i>1. 手元の鳥の原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
+                                目的からではなく、<strong
+                                    class="text-brand-green font-black underline decoration-brand-orange decoration-2">「自分が今持っている手段」</strong>
+                                （自分が誰か、何を知っているか、誰を知っているか）から行動を開始する。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Principle 2 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-t-8 border-brand-orange shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-orange text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-shield-halved mr-2 text-brand-orange"></i>2. 許容可能な損失の原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
+                                期待できる利益（リターン）ではなく、失敗した際に<strong
+                                    class="text-brand-orange font-black underline decoration-brand-green decoration-2">「失っても許容できるコスト」</strong>を基準に投資・行動を決める。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Principle 3 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-t-8 border-brand-amber shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-amber text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-puzzle-piece mr-2 text-brand-amber"></i>3. クレイジーキルトの原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
+                                競合を分析するのではなく、共感してくれる多様な協力者を巻き込み、パートナーの<strong
+                                    class="text-brand-amber font-black underline decoration-brand-orange decoration-2">「コミットメント」をパッチワークのように繋ぎ合わせる</strong>。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto items-stretch">
+                    <!-- Principle 4 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-green border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-green text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-glass-water-droplet mr-2 text-brand-green"></i>4. レモネードの原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5 leading-relaxed">
+                                予期せぬトラブルや偶然の出会い（酸っぱいレモン）を、新しいチャンス（甘いレモネード）へと<strong
+                                    class="text-brand-green font-black underline decoration-brand-amber decoration-2">ポジティブに変換して活用する</strong>。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Principle 5 -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-orange text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-plane mr-2 text-brand-orange"></i>5. 飛行機の中のパイロットの原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5 leading-relaxed">
+                                自分では予測できない外部環境に身を委ねるのではなく、<strong
+                                    class="text-brand-orange font-black underline decoration-brand-green decoration-2">「自分たちがコントロールできる要素」</strong>だけに集中して未来を創る。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 14: Effectuation Application -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">14. THEORY
+                        3</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">エフェクチュエーションの原則と常磐アジャイル</h2>
+                </div>
+
+                <!-- Upper Grid (1-3): 3 Columns (border-t-8) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto items-stretch">
+                    <!-- Principle 1: Bird in Hand -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-t-8 border-brand-green shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-green text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-crow mr-2 text-brand-green"></i>1. 手元の鳥の原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
+                                「福島で学びたい」という自分・仲間の<strong
+                                    class="text-brand-green font-black underline decoration-brand-orange decoration-2">「手元の熱い想い」</strong>（手持ちの手段）からスタート。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Principle 2: Affordable Loss -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-t-8 border-brand-orange shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-orange text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-shield-halved mr-2 text-brand-orange"></i>2. 許容可能な損失の原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
+                                失敗しても失うもののない、<strong
+                                    class="text-brand-orange font-black underline decoration-brand-green decoration-2">「完全無料のオンライン会」</strong>や少数のもくもく会から開始。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Principle 3: Crazy Quilt -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-t-8 border-brand-amber shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-amber text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-puzzle-piece mr-2 text-brand-amber"></i>3. クレイジーキルトの原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2 leading-relaxed">
+                                福島愛を持つ県内外のアジャイル関心層を巻き込み、<strong
+                                    class="text-brand-amber font-black underline decoration-brand-orange decoration-2">「多様なコミット」をパッチワークのよう</strong>に繋ぎ合わせる。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lower Grid (4-5): 2 Columns (border-l-8) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto items-stretch">
+                    <!-- Principle 4: Lemonade -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-green border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-green text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-glass-water-droplet mr-2 text-brand-green"></i>4. レモネードの原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5 leading-relaxed">
+                                福島在住者の不足（トラブル・偶然）を、県外からの<strong
+                                    class="text-brand-green font-black underline decoration-brand-amber decoration-2">「関係人口」の熱い参画へ変換</strong>。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Principle 5: Pilot in the Plane -->
+                    <div
+                        class="bg-white p-4 rounded-xl border-l-8 border-brand-orange border-t border-r border-b border-gray-200 shadow-md flex flex-col justify-between diagram-node">
+                        <div>
+                            <h4 class="font-extrabold text-brand-orange text-base md:text-lg flex items-center">
+                                <i class="fa-solid fa-plane mr-2 text-brand-orange"></i>5. 飛行機の中のパイロットの原則
+                            </h4>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-1.5 leading-relaxed">
+                                外部環境に依存せず、<strong
+                                    class="text-brand-orange font-black underline decoration-brand-green decoration-2">「自分たちがコントロールできる『楽しい活動』」</strong>に集中して自らコミュニティを操縦。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center text-sm md:text-base font-bold text-gray-900 mt-3">
+                    ※不確実な環境下でも一歩を踏み出すための再現可能なアクション原則
+                </div>
+            </div>
+
+            <!-- SLIDE 15: Weak Ties Theory -->
+            <div class="slide flex-col h-full justify-between">
+                <div class="mb-4 md:mb-6">
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">15. THEORY
+                        4</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">「弱い結びつきの強み」が生んだ関係人口</h2>
+                </div>
+
+                <div
+                    class="bg-white p-5 rounded-xl border-l-8 border-brand-green card-shadow my-auto space-y-4 mt-6 md:mt-8">
+                    <h3 class="text-lg md:text-xl font-extrabold text-brand-green text-center mb-2">
+                        グラノヴェターの社会学理論「弱い結びつきの強み（The Strength of Weak Ties）」
+                    </h3>
+
+                    <!-- Theory Explanation Box -->
+                    <div
+                        class="bg-orange-50/40 p-3 rounded-lg border border-orange-100 text-center max-w-2xl mx-auto diagram-node">
+                        <p class="text-xs md:text-sm font-bold text-gray-800 leading-relaxed">
+                            <span class="text-brand-orange font-black">【理論概要】</span> 新しい情報や多様な繋がりは、緊密な身内（強い結びつき）よりも、<br
+                                class="hidden md:inline">
+                            ゆるやかな知人・関わり（弱い結びつき）を介してこそ、外部からしなやかに伝播してくるという理論。
+                        </p>
+                    </div>
+
+                    <!-- Network Diagram (SVG) - Centered & Width Balanced -->
+                    <div
+                        class="flex flex-col md:flex-row items-stretch justify-center gap-8 py-2 max-w-3xl mx-auto w-full">
+                        <!-- Strong Ties -->
+                        <div
+                            class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm text-center flex-1 max-w-[340px] diagram-node flex flex-col justify-between">
+                            <div>
+                                <div class="font-extrabold text-gray-900 text-sm md:text-base mb-1">強い結びつき（身内・会社）</div>
+                                <svg class="w-full h-16 text-gray-400" viewBox="0 0 200 60">
+                                    <circle cx="70" cy="30" r="12" fill="#9ca3af" />
+                                    <circle cx="130" cy="30" r="12" fill="#9ca3af" />
+                                    <line x1="70" y1="30" x2="130" y2="30" stroke="#4b5563" stroke-width="4" />
+                                </svg>
+                            </div>
+                            <p class="text-xs md:text-sm font-bold text-gray-800 mt-2">同質性が高く、新しい風が入りにくい</p>
+                        </div>
+
+                        <!-- Weak Ties (Bridge) -->
+                        <div
+                            class="bg-white p-4 rounded-xl border-l-8 border-brand-orange border-t-2 border-r-2 border-b-2 border-gray-200 shadow-md text-center flex-1 max-w-[340px] diagram-node flex flex-col justify-between">
+                            <div>
+                                <div class="font-extrabold text-brand-orange text-sm md:text-base mb-1">学びを通じた「弱い結びつき」★
+                                </div>
+                                <svg class="w-full h-16 text-brand-orange" viewBox="0 0 200 60">
+                                    <circle cx="40" cy="35" r="10" fill="#143d30" />
+                                    <circle cx="160" cy="35" r="10" fill="#d94e11" />
+                                    <path d="M40 35 C 80 18, 120 18, 160 35" stroke="#d94e11" stroke-width="2.5"
+                                        stroke-dasharray="4 4" fill="none" />
+                                    <text x="100" y="13" font-size="10" text-anchor="middle" fill="#d94e11"
+                                        font-weight="black" class="tracking-wider">アジャイル学びの橋</text>
+                                </svg>
+                            </div>
+                            <p class="text-xs md:text-sm font-black text-brand-orange mt-2">縁のなかった外部の人も心理的ハードル低く飛び込める！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center text-sm md:text-base font-black text-brand-green mt-3">
+                    「地域活性化」ではなく「学び（アジャイル）」というテーマだからこそ外部から人が集まった
+                </div>
+            </div>
+
+            <!-- SLIDE 16: Community Values -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">16.
+                        VALUES</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">常磐アジャイルが大切にしていること</h2>
+                </div>
+
+                <!-- 3 Key Values cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto items-stretch">
+                    <div
+                        class="bg-white p-5 rounded-xl border-t-8 border-brand-green shadow-lg flex flex-col justify-between relative diagram-node">
+                        <div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-emerald-100 text-brand-green flex items-center justify-center font-black text-lg mb-3">
+                                1</div>
+                            <h3 class="font-extrabold text-xl md:text-2xl text-brand-green">「常磐」と現地第一の選択</h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2.5 leading-relaxed">
+                                最初から広域な「福島」とせず、生活圏内であるいわき市を軸にするため、あえて「常磐」と名付けました。地域に根ざすことを重視しています。</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-center">
+                            <i class="fa-solid fa-map-pin text-brand-green text-3xl"></i>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-5 rounded-xl border-t-8 border-brand-orange shadow-lg flex flex-col justify-between relative diagram-node">
+                        <div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center font-black text-lg mb-3">
+                                2</div>
+                            <h3 class="font-extrabold text-xl md:text-2xl text-brand-green">「背伸びをしない」運営</h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2.5 leading-relaxed">
+                                無理に大きなイベントや成果を目指さず、自分たちのできることからコツコツと。身の丈に合った等身大の運営を続けています。</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-center">
+                            <i class="fa-solid fa-face-smile text-brand-orange text-3xl"></i>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white p-5 rounded-xl border-t-8 border-brand-amber shadow-lg flex flex-col justify-between relative diagram-node">
+                        <div>
+                            <div
+                                class="w-12 h-12 rounded-full bg-amber-100 text-brand-amber flex items-center justify-center font-black text-lg mb-3">
+                                3</div>
+                            <h3 class="font-extrabold text-xl md:text-2xl text-brand-green">それぞれの都合・スタンス尊重</h3>
+                            <p class="text-sm md:text-base font-bold text-gray-900 mt-2.5 leading-relaxed">
+                                「来たいときに来て、できる範囲で参加」。子育て、繁忙期、飲み会だけ…など、メンバーが抱える個々のライフスタイルや事情を最優先します。</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200 flex justify-center">
+                            <i class="fa-solid fa-heart text-brand-amber text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-yellowBg p-3 rounded-xl text-center border border-brand-orange shadow-sm mt-1">
+                    <p class="text-xs md:text-sm text-brand-amber font-black">
+                        ※今回の登壇も「確実に動ける東京在住メンバー」がたまたまご縁をいただいた等身大の運営体制です
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 17: Future & Challenges -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">17.
+                        CHALLENGES</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">コミュニティの課題とこれから</h2>
+                </div>
+
+                <!-- Step Roadmap Diagram -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto items-stretch">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white p-5 rounded-xl border-t-8 border-red-500 shadow-md text-center flex flex-col justify-between diagram-node">
+                        <div>
+                            <span class="text-sm md:text-base font-extrabold text-red-600"><i
+                                    class="fa-solid fa-triangle-exclamation mr-1.5"></i>現状の課題</span>
+                            <h4 class="font-extrabold text-base md:text-xl text-gray-900 mt-2">福島在住の運営仲間を増やす</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-800 mt-1.5 leading-relaxed">
+                                現在、在住者は2名。現地主体の熱量をさらに高め、いわき地域での当事者（運営に携わってくれる仲間）を増やす必要があります。</p>
+                        </div>
+                        <div class="mt-3 text-red-500 text-2xl"><i class="fa-solid fa-user-plus"></i></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white p-5 rounded-xl border-t-8 border-brand-amber shadow-md text-center flex flex-col justify-between diagram-node">
+                        <div>
+                            <span class="text-sm md:text-base font-extrabold text-brand-amber"><i
+                                    class="fa-solid fa-flag mr-1.5"></i>Next Step 1</span>
+                            <h4 class="font-extrabold text-base md:text-xl text-gray-900 mt-2">背伸びのない現地継続活動</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-800 mt-1.5 leading-relaxed">
+                                焦って大きなイベントを開くのではなく、いわき現地でのもくもく会やオフライン懇親会など、できる活動をコツコツと継続します。</p>
+                        </div>
+                        <div class="mt-3 text-brand-amber text-2xl"><i class="fa-solid fa-calendar-check"></i></div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white p-5 rounded-xl border-t-8 border-brand-green shadow-md text-center flex flex-col justify-between diagram-node">
+                        <div>
+                            <span class="text-sm md:text-base font-extrabold text-brand-green"><i
+                                    class="fa-solid fa-rocket mr-1.5"></i>Next Step 2</span>
+                            <h4 class="font-extrabold text-base md:text-xl text-gray-900 mt-2">しなやかな「学びの広がり」</h4>
+                            <p class="text-xs md:text-sm font-bold text-gray-800 mt-1.5 leading-relaxed">
+                                いわき現地の軸足を大切にしながら、常磐線沿線や福島県内外のアジャイル関心層へ、ゆっくりと「学びの架け橋」を広げていきます。</p>
+                        </div>
+                        <div class="mt-3 text-brand-green text-2xl"><i class="fa-solid fa-road-bridge"></i></div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-yellowBg p-4 rounded-xl text-center border-2 border-brand-orange shadow-md">
+                    <p class="text-lg md:text-xl font-black text-brand-orange">
+                        <i class="fa-solid fa-bullhorn mr-2"></i>「福島のみんなで『いい感じに働く』を考えるコミュニティにしたい！」
+                    </p>
+                </div>
+            </div>
+
+            <!-- SLIDE 18: Summary -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">18.
+                        SUMMARY</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">まとめ</h2>
+                </div>
+
+                <!-- 3 Summary Nodes with Icons -->
+                <div class="bg-white p-6 rounded-xl border-2 border-gray-300 shadow-md my-auto space-y-4 diagram-node">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-brand-green text-white font-black flex items-center justify-center shrink-0 text-base">
+                            1</div>
+                        <p class="text-base md:text-lg font-bold text-gray-900">
+                            小さな<strong
+                                class="text-brand-green underline decoration-brand-green decoration-2">「手元の行動（エフェクチュエーション）」</strong>から全てが始まる。
+                        </p>
+                    </div>
+                    <hr class="border-gray-200">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-brand-green text-white font-black flex items-center justify-center shrink-0 text-base">
+                            2</div>
+                        <p class="text-base md:text-lg font-bold text-gray-900">
+                            地域活性化を直で目的にしなくても、<strong
+                                class="text-brand-orange underline decoration-brand-orange decoration-2">「学び」のコミュニティが関係人口を創出する。</strong>
+                        </p>
+                    </div>
+                    <hr class="border-gray-200">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-10 h-10 rounded-full bg-brand-green text-white font-black flex items-center justify-center shrink-0 text-base">
+                            3</div>
+                        <p class="text-base md:text-lg font-bold text-gray-900">
+                            未完成なコミュニティだからこそ、<strong
+                                class="text-brand-amber underline decoration-brand-amber decoration-2">関わり代（余白）</strong>がある。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center font-black text-brand-green text-sm md:text-lg mt-3">
+                    コミュニティは人と地域を紡ぐ。次はあなたが巻き込まれる番です！
+                </div>
+            </div>
+
+            <!-- SLIDE 19: Call to Action -->
+            <div class="slide flex-col h-full justify-between">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">19. CALL TO
+                        ACTION</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-brand-green">仲間を絶賛募集中です！</h2>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-xl border-4 border-brand-orange card-shadow my-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="space-y-4 flex-1">
+                        <p class="text-lg md:text-2xl font-black text-brand-green">全員大歓迎でお待ちしています！</p>
+
+                        <!-- Action Flow Step -->
+                        <div class="flex items-center space-x-3 text-sm font-bold text-gray-900">
+                            <span class="bg-brand-orange text-white px-2.5 py-1 rounded font-black">1</span>
+                            <span>Connpassページをチェック</span>
+                            <i class="fa-solid fa-chevron-right text-gray-500"></i>
+                            <span class="bg-brand-orange text-white px-2.5 py-1 rounded font-black">2</span>
+                            <span>イベントポチり</span>
+                        </div>
+
+                        <ul class="text-sm md:text-base font-bold text-gray-900 space-y-1.5 list-disc list-inside">
+                            <li>福島在住の方 / ゆかりのある方</li>
+                            <li>全く縁がないけれど面白そうだと思った方</li>
+                        </ul>
+
+                        <div class="pt-2">
+                            <span
+                                class="inline-block bg-brand-orange text-white text-xs font-black px-3.5 py-1.5 rounded-full">Connpassグループ</span>
+                            <p class="text-sm md:text-lg font-mono text-brand-green font-black mt-1">
+                                jouban-agile.connpass.com</p>
+                        </div>
+                    </div>
+
+                    <!-- QR Code (Clickable to visit site directly) -->
+                    <a href="https://jouban-agile.connpass.com/" target="_blank" rel="noopener noreferrer"
+                        onclick="window.open(this.href, '_blank'); return false;"
+                        class="w-32 h-32 bg-white border border-gray-300 p-2.5 rounded-xl flex flex-col items-center justify-center shrink-0 shadow-md diagram-node cursor-pointer hover:border-brand-orange transition-all duration-200">
+                        <img src="qr_code.png" alt="常磐アジャイル Connpass QR Code" class="w-24 h-24 object-contain">
+                        <span class="text-[9px] font-black text-gray-500 mt-1 flex items-center">
+                            <i class="fa-solid fa-arrow-up-right-from-square mr-1 text-[8px]"></i>開く
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SLIDE 20: Q&A / Closing -->
+            <div class="slide flex-col justify-center items-center text-center h-full space-y-4">
+                <div>
+                    <span class="text-brand-orange text-sm md:text-lg font-black uppercase tracking-wider">20.
+                        OUTRO</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-brand-green">Q & A / 最後に</h2>
+                </div>
+                <p class="text-xl md:text-2xl font-bold text-brand-orange">ご清聴ありがとうございました！</p>
+
+                <!-- Closing Message -->
+                <div
+                    class="bg-brand-yellowBg px-6 py-4 rounded-xl border border-brand-orange shadow-md max-w-2xl w-full text-center mt-2">
+                    <p class="text-base md:text-xl font-black text-brand-green leading-relaxed">
+                        「福島のみんなで『いい感じに働く』を考える」<br>
+                        そんな温かいコミュニティを、皆さまと一緒に盛り上げていきたいです！
+                    </p>
+                </div>
+
+                <!-- Speaker Info & X (Twitter) QR Code -->
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between gap-6 bg-white px-6 py-4 rounded-xl border-2 border-gray-300 shadow-md max-w-lg w-full diagram-node">
+                    <div class="text-left space-y-3 flex-1">
+                        <div>
+                            <span class="text-[10px] bg-brand-green text-white font-black px-2 py-0.5 rounded-full">登壇者
+                                Xアカウント</span>
+                            <p class="text-lg md:text-xl font-black text-gray-900 mt-1 flex items-center">
+                                <i class="fa-brands fa-x-twitter text-brand-green mr-2 text-xl"></i>@nb_rady
+                            </p>
+                        </div>
+                        <div class="text-xs md:text-sm text-gray-600 font-bold">
+                            <p class="font-extrabold text-brand-green">原田 頌久 (nobu-harady)</p>
+                            <p class="mt-0.5">お気軽にフォロー・フィードバックしてください！</p>
+                        </div>
+                        <p class="text-[11px] md:text-xs text-brand-amber font-black tracking-wider">#東北IT物産展2026
+                            #常磐アジャイル</p>
+                    </div>
+
+                    <!-- QR Code (Clickable to visit X profile directly) -->
+                    <a href="https://x.com/nb_rady" target="_blank" rel="noopener noreferrer"
+                        onclick="window.open(this.href, '_blank'); return false;"
+                        class="w-24 h-24 bg-white border border-gray-200 p-1.5 rounded-xl flex flex-col items-center justify-center shrink-0 shadow-sm hover:border-brand-orange transition-colors duration-200">
+                        <img src="x_qr.png" alt="原田 頌久 Xアカウント QR Code" class="w-full h-full object-contain">
+                    </a>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Controls Bar -->
+        <footer class="w-full px-8 py-3 bg-white/95 border-t border-gray-200/80 flex justify-between items-center z-10">
+            <div class="flex items-center space-x-2">
+                <button id="prev-btn" onclick="prevSlide()"
+                    class="px-3.5 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-brand-green hover:text-white transition-colors text-sm font-bold flex items-center shadow-sm">
+                    <i class="fa-solid fa-chevron-left mr-1.5"></i> 前へ
+                </button>
+                <button id="next-btn" onclick="nextSlide()"
+                    class="px-3.5 py-1.5 rounded-lg bg-brand-green text-white hover:bg-emerald-800 transition-colors text-sm font-bold flex items-center shadow-sm">
+                    次へ <i class="fa-solid fa-chevron-right ml-1.5"></i>
+                </button>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="flex-1 mx-8 hidden md:block">
+                <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-brand-orange h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleSlideListModal()"
+                    class="px-3.5 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors text-sm font-bold flex items-center shadow-sm">
+                    <i class="fa-solid fa-list mr-1.5"></i> 一覧
+                </button>
+                <button onclick="toggleFullscreen()"
+                    class="px-3.5 py-1.5 rounded-lg bg-brand-orange text-white hover:bg-orange-700 transition-colors text-sm font-bold flex items-center shadow-sm">
+                    <i id="fs-icon" class="fa-solid fa-expand mr-1.5"></i> 全画面
+                </button>
+            </div>
+        </footer>
+        <!-- Slide List Modal -->
+        <div id="slide-modal" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4">
+            <div class="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] flex flex-col p-6 shadow-2xl">
+                <div class="flex justify-between items-center pb-3 border-b">
+                    <h3 class="text-lg font-bold text-brand-green">スライド一覧</h3>
+                    <button onclick="toggleSlideListModal()" class="text-gray-400 hover:text-gray-600">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <div id="modal-slide-list" class="flex-1 overflow-y-auto py-4 space-y-2">
+                    <!-- JS Inject -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            const titles = [
+                "タイトル",
+                "自己紹介",
+                "本セッションのテーマ",
+                "本日のアジェンダ",
+                "前提①「関係人口」",
+                "前提②「アジャイルコミュニティ」",
+                "常磐アジャイルの誕生",
+                "立ち上げストーリー①出会い",
+                "立ち上げストーリー②発足",
+                "立ち上げメンバーの構成",
+                "立ち上げ後に起きた「変化」",
+                "理論① エフェクチュエーション",
+                "理論② 5つの基本原則",
+                "理論③ 常磐アジャイルでの体現",
+                "理論④ 弱い結びつきの強み",
+                "大切にしていること",
+                "これからの課題とNext Step",
+                "まとめ",
+                "Call to Action",
+                "Q&A / 最後に"
+            ];
+
+            function updateSlide() {
+                slides.forEach((slide, idx) => {
+                    if (idx === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // Update Slide Number Header
+                document.getElementById('slide-number-header').innerText = `${currentSlide + 1} / ${totalSlides}`;
+
+                // Update Progress Bar
+                const progressPct = ((currentSlide + 1) / totalSlides) * 100;
+                document.getElementById('progress-bar').style.width = `${progressPct}%`;
+
+                // Update Button State
+                document.getElementById('prev-btn').disabled = currentSlide === 0;
+                document.getElementById('next-btn').disabled = currentSlide === totalSlides - 1;
+            }
+
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+
+            function jumpToSlide(idx) {
+                currentSlide = idx;
+                updateSlide();
+                toggleSlideListModal();
+            }
+
+            function toggleSlideListModal() {
+                const modal = document.getElementById('slide-modal');
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            }
+
+            // Slide scaling and fitting logic
+            function resizeSlides() {
+                const container = document.querySelector('.slide-container');
+                if (!container) return;
+
+                const baseW = 1280;
+                const baseH = 720;
+
+                const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+
+                // Use screen.width/height in fullscreen to get absolute resolution, bypassing browser transition lag
+                let winW = window.innerWidth;
+                let winH = window.innerHeight;
+
+                if (isFullscreen) {
+                    winW = screen.width;
+                    winH = screen.height;
+                }
+
+                const scaleX = winW / baseW;
+                const scaleY = winH / baseH;
+
+                const margin = isFullscreen ? 1.0 : 0.96;
+                const scale = Math.min(scaleX, scaleY) * margin;
+
+                container.style.transform = `scale(${scale})`;
+            }
+
+            function toggleFullscreen() {
+                const container = document.querySelector('.slide-container');
+                if (!document.fullscreenElement) {
+                    container.requestFullscreen().then(() => {
+                        document.getElementById('fs-icon').className = "fa-solid fa-compress mr-1.5";
+                        // Staggered trigger to ensure scaling adapts to macOS fullscreen animation stages
+                        setTimeout(resizeSlides, 50);
+                        setTimeout(resizeSlides, 200);
+                        setTimeout(resizeSlides, 500);
+                        setTimeout(resizeSlides, 800);
+                    }).catch(err => {
+                        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen().then(() => {
+                        document.getElementById('fs-icon').className = "fa-solid fa-expand mr-1.5";
+                        setTimeout(resizeSlides, 50);
+                        setTimeout(resizeSlides, 200);
+                        setTimeout(resizeSlides, 500);
+                    });
+                }
+            }
+
+            // Listen for fullscreen state changes (e.g. user presses Esc key)
+            document.addEventListener('fullscreenchange', () => {
+                const isFullscreen = !!document.fullscreenElement;
+                const fsIcon = document.getElementById('fs-icon');
+                if (fsIcon) {
+                    fsIcon.className = isFullscreen ? "fa-solid fa-compress mr-1.5" : "fa-solid fa-expand mr-1.5";
+                }
+                resizeSlides();
+                setTimeout(resizeSlides, 200);
+                setTimeout(resizeSlides, 500);
+            });
+
+            // Initialize Modal List
+            const modalList = document.getElementById('modal-slide-list');
+            titles.forEach((title, idx) => {
+                const item = document.createElement('div');
+                item.className = "p-3 rounded-lg hover:bg-emerald-50 cursor-pointer flex justify-between items-center border border-gray-100 transition-colors";
+                item.onclick = () => jumpToSlide(idx);
+                item.innerHTML = `
+                <span class="text-sm font-bold text-gray-700">${idx + 1}. ${title}</span>
+                <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+            `;
+                modalList.appendChild(item);
+            });
+
+            // Keyboard Navigation & Shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                    prevSlide();
+                } else if (e.key === 'f' || e.key === 'F') {
+                    toggleFullscreen();
+                }
+            });
+
+            // Initial render and scale
+            updateSlide();
+            resizeSlides();
+
+            window.addEventListener('resize', resizeSlides);
+            window.addEventListener('load', resizeSlides);
+        </script>
+</body>
+
+</html>
