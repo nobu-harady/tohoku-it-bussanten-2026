@@ -94,16 +94,25 @@
         /* Print styles for PDF export (e.g. SpeakerDeck) */
         @media print {
             @page {
-                size: 297mm 167.06mm; /* 16:9 Landscape Aspect Ratio */
+                size: 1280px 720px; /* Force presentation base dimensions to eliminate responsive scaling issues */
                 margin: 0;
             }
             html, body {
-                width: 100% !important;
-                height: 100% !important;
+                width: 1280px !important;
+                height: 720px !important;
                 overflow: visible !important;
                 background-color: #0b0f19 !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
+            }
+            /* Reset parent container to disable scaling transformation in print output */
+            .slide-container {
+                width: 1280px !important;
+                height: auto !important;
+                transform: none !important;
+                background-color: transparent !important;
+                display: block !important;
+                overflow: visible !important;
             }
             header, footer, .slide-navigation, button, #theme-btn, .no-print {
                 display: none !important;
@@ -116,10 +125,10 @@
                 visibility: visible !important;
                 page-break-after: always !important;
                 break-after: page !important;
-                width: 100vw !important;
-                height: 100vh !important;
+                width: 1280px !important;
+                height: 720px !important;
                 box-sizing: border-box !important;
-                padding: 2.5rem 3.5rem !important;
+                padding: 3rem 4rem !important;
                 margin: 0 !important;
                 background-color: #0b0f19 !important;
                 color: #ffffff !important;
