@@ -5,3 +5,7 @@ code_artifact_backup.html
 .DS_Store
 .vscode/
 input.md
+node_modules/
+package-lock.json
+package.json
+generate_pdf.js
