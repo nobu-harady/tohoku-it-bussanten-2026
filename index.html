@@ -219,6 +219,11 @@
                 color: #ffffff !important;
                 fill: #ffffff !important;
             }
+            /* Exception: yellow highlights on green background must stay yellow */
+            .slide .bg-brand-green .text-yellow-200,
+            .slide .bg-brand-green span.text-yellow-200 {
+                color: #fef08a !important; /* Keep readable bright yellow on dark green background */
+            }
             
             .slide .bg-brand-orange,
             .slide .bg-brand-orange *,
