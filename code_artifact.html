@@ -100,8 +100,12 @@
             html, body {
                 width: 1280px !important;
                 height: 720px !important;
+                margin: 0 !important;
+                padding: 0 !important;
                 overflow: visible !important;
-                background-color: #0b0f19 !important;
+                background-color: #ffffff !important; /* Force clean white background */
+                background: #ffffff !important;
+                color: #1e293b !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
@@ -113,12 +117,17 @@
                 background-color: transparent !important;
                 display: block !important;
                 overflow: visible !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
             header, footer, .slide-navigation, button, #theme-btn, .no-print {
                 display: none !important;
             }
             .slide {
                 display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                align-items: stretch !important;
                 opacity: 1 !important;
                 transform: none !important;
                 position: relative !important;
@@ -128,18 +137,50 @@
                 width: 1280px !important;
                 height: 720px !important;
                 box-sizing: border-box !important;
-                padding: 3rem 4rem !important;
+                padding: 3rem 4.5rem !important;
                 margin: 0 !important;
-                background-color: #0b0f19 !important;
-                color: #ffffff !important;
+                background-color: #ffffff !important; /* Force clean white background per slide */
+                background: #ffffff !important;
+                color: #1e293b !important;
                 overflow: hidden !important;
             }
-            .slide * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
+            /* Correct elements that had white text by default to dark text */
+            .slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide span, .slide li, .slide div {
+                color: #1e293b !important;
+            }
+            /* Exceptions for brand-colored text that should be kept */
+            .slide .text-brand-green { color: #143d30 !important; }
+            .slide .text-brand-orange { color: #d94e11 !important; }
+            .slide .text-brand-amber { color: #b45309 !important; }
+            
+            /* Exceptions for badges/buttons background & text */
+            .slide .bg-brand-green { background-color: #143d30 !important; }
+            .slide .bg-brand-green * { color: #ffffff !important; }
+            .slide .bg-brand-orange { background-color: #d94e11 !important; }
+            .slide .bg-brand-orange * { color: #ffffff !important; }
+            .slide .bg-brand-amber { background-color: #b45309 !important; }
+            .slide .bg-brand-amber * { color: #ffffff !important; }
+            .slide .bg-brand-yellowBg { background-color: #fef3c7 !important; }
+            
+            /* Card background adjustments on white presentation slides */
+            .slide .bg-white {
+                background-color: #f8fafc !important; /* Light slate color for cards to pop out */
+                border: 2px solid #e2e8f0 !important;
+                box-shadow: none !important;
+            }
+            .slide .bg-white * {
+                color: #1e293b !important;
             }
             .diagram-node {
                 box-shadow: none !important;
+                border: 2px solid #cbd5e1 !important;
+            }
+            /* Explicit SVG text coloring rules for print */
+            .slide svg text {
+                fill: #475569 !important;
+            }
+            .slide svg text[fill="#ffffff"] {
+                fill: #ffffff !important; /* Maintain white inside blocks */
             }
         }
     </style>
