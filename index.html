@@ -103,8 +103,9 @@
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow: visible !important;
-                background-color: #0b0f19 !important; /* Keep the original dark blue background */
-                background: #0b0f19 !important;
+                background-color: #ffffff !important; /* Force clean white background */
+                background: #ffffff !important;
+                color: #1e293b !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
@@ -113,7 +114,7 @@
                 width: 1280px !important;
                 height: 720px !important;
                 transform: none !important;
-                background-color: #0b0f19 !important;
+                background-color: #ffffff !important;
                 display: block !important;
                 overflow: visible !important;
                 margin: 0 !important;
@@ -123,7 +124,7 @@
                 display: none !important;
             }
             .slide {
-                display: flex !important; /* Force flex display for layout alignment */
+                display: flex !important; /* Force display but DO NOT override flex directions / alignments */
                 opacity: 1 !important;
                 transform: none !important;
                 position: relative !important;
@@ -134,17 +135,66 @@
                 height: 720px !important;
                 box-sizing: border-box !important;
                 margin: 0 !important;
-                background-color: #0b0f19 !important;
-                background: #0b0f19 !important;
+                background-color: #ffffff !important; /* Force clean white background per slide */
+                background: #ffffff !important;
+                color: #1e293b !important;
                 overflow: hidden !important;
             }
             .slide * {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-            /* Keep original white cards white as designed in the slides */
+            
+            /* Target text elements inside slide carefully to avoid layout collisions */
+            .slide h1, .slide h2, .slide h3, .slide h4, .slide p, .slide li, .slide td, .slide th {
+                color: #1e293b !important; /* Force standard dark text on white */
+            }
+            
+            /* Preserving critical brand colored elements */
+            .slide .text-brand-green { color: #143d30 !important; }
+            .slide .text-brand-orange { color: #d94e11 !important; }
+            .slide .text-brand-amber { color: #b45309 !important; }
+            
+            /* Title slide background badges */
+            .slide .bg-brand-yellowBg { background-color: #fef3c7 !important; }
+            .slide .text-brand-amber { color: #b45309 !important; }
+            
+            /* Preserving badges/banners background & white text inside them */
+            .slide .bg-brand-green { background-color: #143d30 !important; }
+            .slide .bg-brand-green * { color: #ffffff !important; }
+            
+            .slide .bg-brand-orange { background-color: #d94e11 !important; }
+            .slide .bg-brand-orange * { color: #ffffff !important; }
+            
+            .slide .bg-brand-amber { background-color: #b45309 !important; }
+            .slide .bg-brand-amber * { color: #ffffff !important; }
+            
+            /* Card background adjustments on white presentation slides */
             .slide .bg-white {
-                background-color: #ffffff !important;
+                background-color: #f8fafc !important; /* Light slate color for cards to pop out */
+                border: 2px solid #e2e8f0 !important;
+                box-shadow: none !important;
+            }
+            .slide .bg-white * {
+                color: #1e293b !important;
+            }
+            
+            .diagram-node {
+                box-shadow: none !important;
+                border: 2px solid #cbd5e1 !important;
+            }
+            
+            /* SVG graphics: ensure text inside SVGs renders clearly (dark grey) */
+            .slide svg text {
+                fill: #334155 !important;
+            }
+            .slide svg text[fill="#ffffff"] {
+                fill: #ffffff !important; /* Maintain white inside colored SVG blocks */
+            }
+            
+            /* Custom list icons and bullet overrides */
+            .slide ul li::marker {
+                color: #d94e11 !important; /* Force orange markers on white */
             }
         }
     </style>
