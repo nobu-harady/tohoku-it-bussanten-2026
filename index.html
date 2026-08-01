@@ -112,7 +112,7 @@
             /* Disable parent viewport scaling transformations */
             .slide-container {
                 width: 1280px !important;
-                height: 720px !important;
+                height: auto !important; /* Allow vertical expansion, managed by JS beforeprint */
                 transform: none !important;
                 background-color: #ffffff !important;
                 display: block !important;
@@ -124,11 +124,7 @@
                 display: none !important;
             }
             .slide {
-                display: flex !important; /* Force display but DO NOT override flex directions / alignments */
-                opacity: 1 !important;
-                transform: none !important;
-                position: relative !important;
-                visibility: visible !important;
+                /* Display and opacity are handled by JS beforeprint */
                 page-break-after: always !important;
                 break-after: page !important;
                 width: 1280px !important;
@@ -1846,6 +1842,36 @@
 
             window.addEventListener('resize', resizeSlides);
             window.addEventListener('load', resizeSlides);
+
+            // Optimize for PDF/Print layout before rendering
+            window.addEventListener('beforeprint', () => {
+                document.querySelectorAll('.slide').forEach(slide => {
+                    slide.classList.add('active');
+                    slide.style.display = 'flex';
+                    slide.style.opacity = '1';
+                });
+                const container = document.querySelector('.slide-container');
+                if (container) {
+                    container.style.height = 'auto';
+                    container.style.transform = 'none';
+                }
+            });
+
+            window.addEventListener('afterprint', () => {
+                const slides = document.querySelectorAll('.slide');
+                slides.forEach((slide, index) => {
+                    if (index !== currentSlide) {
+                        slide.classList.remove('active');
+                        slide.style.display = '';
+                        slide.style.opacity = '';
+                    }
+                });
+                const container = document.querySelector('.slide-container');
+                if (container) {
+                    container.style.height = '720px';
+                }
+                resizeSlides();
+            });
         </script>
 </body>
 
